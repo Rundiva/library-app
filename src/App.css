@@ -1,0 +1,36 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+}  
+
+/* body{
+  background-image: url(./assets/pic3.jpg); 
+  background-size: cover; 
+  background-repeat: no-repeat;
+} */
+
+/* .form{
+  margin-top: -25rem; 
+  align-items: center; 
+  justify-content: center; 
+  margin-left: 20rem; 
+
+} 
+
+.overlay{
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 7rem;
+} */ 
+
+
+#hero-section{
+  background-image: url('./assets/hero-bg.jpeg');
+ 
+}
