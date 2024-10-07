@@ -9,6 +9,7 @@ function App() {
     <div>
       <Navbar /> 
       <HeroSearch />
+      <BookList/>
     </div>
   )
 }
