@@ -31,6 +31,17 @@
 
 
 #hero-section{
-  background-image: url('./assets/hero-bg.jpeg');
+  background-image: url('./assets/pic0.jpg');
  
+} 
+
+#searchBar{
+  background-image: url('./assets/readinmg-gif3.gif'); 
+  /* background-image: url('./assets/pic3.jpg');  */
+  background-repeat: no-repeat; 
+  background-size: cover; 
+ justify-content: center;
+  
+ 
+  
 }
