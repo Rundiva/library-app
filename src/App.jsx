@@ -4,6 +4,7 @@ import BookList from "./pages/bookList";
 import AddBook from "./pages/addbook";
 import "./App.css";
 import BookDetails from "./pages/bookDetails";
+import Login from "./pages/addbook/Login";
 
 
 function App(){
@@ -16,6 +17,10 @@ function App(){
     {
       path: "/add-new",
       element: <AddBook/>,
+    },
+    {
+      path: "/account",
+      element: <Login/>,
     },
 
     {
