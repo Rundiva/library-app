@@ -4,6 +4,8 @@ import BookList from "./pages/bookList";
 import AddBook from "./pages/addbook";
 import "./App.css";
 import BookDetails from "./pages/bookDetails";
+import Hero from "./pages/bookList/components/Hero";
+import Navbar from "./components/Navbar";
 
 
 function App(){
@@ -16,10 +18,6 @@ function App(){
     {
       path: "/add-new",
       element: <AddBook/>,
-    },
-    {
-      path: "/account",
-      element: <Login/>,
     },
 
     {
