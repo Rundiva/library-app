@@ -70,8 +70,8 @@ const AddBook = () => {
 
   return (
     <div>
-      <Navbar />
-      <div className="w-full max-w-full lg:max-w-[1345px] h-auto flex flex-col justify-center items-center bg-gray-100 p-6 mx-auto">
+      <Navbar /> <br />
+      <div className="w-full mt-[50px] max-w-full lg:max-w-[1345px] h-auto flex flex-col justify-center items-center bg-gray-100 p-6 mx-auto">
         <form
           onSubmit={handleSubmit}
           className="w-full sm:w-[80%] bg-gray-800 p-6 rounded-lg relative border-2 border-transparent"
