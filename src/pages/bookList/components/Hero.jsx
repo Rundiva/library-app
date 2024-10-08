@@ -14,17 +14,17 @@ const Hero = () => {
               <span className="flex gap-x-2">
                 <button className="py-[16px] px-[24px] bg-[#F8A928] text-white border-[3px]  hover:bg-white hover:text-black hover:border-black border-[#F8A928]">OUR COLLECTIONS</button>
                 <Link to="/add-new" className="py-[16px] px-[24px] bg-[#c5a88000] text-white border-[2px] hover:bg-white hover:text-black">ADD BOOK</Link>
-               
+
               </span>
               <div id="searchBar" className="flex bg-[#F8A928] box-content-h-[30rem] w-[62rem] p-24 mt-[15rem] mb-[5rem] ">
-              
+
                 <input className="flex w-[35rem] h-[3rem] p-[2rem] rounded-l-full justify-center" placeholder="search books" /><button className="flex bg-black w-[8rem] text-white justify-center items-center">Find</button>
 
 
 
 
               </div>
-
+              <div>Book List Displays Here</div>
             </div>
           </div>
 
