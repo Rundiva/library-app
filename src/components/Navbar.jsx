@@ -1,4 +1,5 @@
-import NavLogo from '../assets/bk-logo.png'
+import NavLogo from '../assets/bk-logo.png' 
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -11,7 +12,7 @@ const Navbar = () => {
                 </div>
                 <a href="#">Home</a>
                 <a href="#">Add Book</a>
-                <a href="#">Account</a>
+                <Link to='/Login'>Sign Up</Link>
             </nav>
 
         </div>

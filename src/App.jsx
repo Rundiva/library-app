@@ -5,7 +5,12 @@ import AddBook from "./pages/addbook";
 import "./App.css";
 import BookDetails from "./pages/bookDetails";
 import Hero from "./pages/bookList/components/Hero";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar"; 
+import Login from "./pages/account";
+
+
+
+
 
 
 function App(){
@@ -33,6 +38,12 @@ function App(){
       path: "/add-new",
       element: <Navbar/>,
     },
+    
+    {
+      path: "/Login",
+      element: <Login/>,
+    },
+    
 
   ]);
 
