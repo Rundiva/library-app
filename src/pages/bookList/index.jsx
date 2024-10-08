@@ -10,7 +10,6 @@ const BookList = () => {
     <div>
         <Navbar/>
         <Hero />
-        <Testimonials/>
         <div>Book list content goes here</div>
 
         <Link to="/add-new">Add Book</Link>
