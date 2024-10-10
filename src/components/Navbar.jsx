@@ -12,8 +12,8 @@ const Navbar = () => {
                     <img src={NavLogo} alt="img" />
 
                 </div>
-                <Link to='/'><a href="#">Home</a></Link>
-                <a href="#">Add Book</a>
+                <Link to='/'>Home</Link>
+                <a href="#booklist">Book List</a>
                 <Link to='/account'>Account</Link> 
                 <FaUserLock />
             </nav>
