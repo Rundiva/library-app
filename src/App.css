@@ -36,7 +36,7 @@
 } 
 
 #searchBar{
-  background-image: url('./assets/readinmg-gif3.gif'); 
+  background-image: url('./assets/search-bg.gif'); 
   /* background-image: url('./assets/pic3.jpg');  */
   background-repeat: no-repeat; 
   background-size: cover; 
@@ -49,4 +49,8 @@
   background-size: cover; 
   background-repeat: no-repeat; 
 
-} 
+}  
+
+/* #booklist{
+
+} */
