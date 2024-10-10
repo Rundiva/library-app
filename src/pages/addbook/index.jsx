@@ -2,9 +2,23 @@ import Footer from "../../components/Footer";
 import axios from "axios";
 import { BASE_URL } from "../../constants";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 
 const AddBook = () => {
+  //fetching Data
+  const [authors, setAuthors] = useState([]);
+
+  const getAuthors = async () => {
+    const response = await axios.get(`${BASE_URL}/author`);
+    setAuthors(response.data)
+  }
+
+  useEffect(() => {
+    getAuthors();
+  }, []);
+
+
   // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -18,7 +32,8 @@ const AddBook = () => {
         title: formData.get('title'),
         description: formData.get('summary'),
         content: formData.get(content),
-        image: formData.get('cover'),
+        cover: formData.get('cover'),
+        author: formData.get('author'),
       });
 
     } catch (error) {
@@ -27,23 +42,23 @@ const AddBook = () => {
   };
 
 
+
+
   return (
     <div>
 
-      <div id="#addbookcover" className="min-h-screen flex mb-[-200px] ">
-       
-        <aside className=" w-1/4 bg-gradient-to-b from-amber-400 to-lime-400 text-white p-6 shadow-lg ">
+      <div className="min-h-screen flex mb-[-200px] ">
+
+
+        <aside className=" w-1/4 bg-gradient-to-b from-amber-400 to-lime-400 text-white p-4 pt-11 shadow-lg ">
+
+        
           <h2 className="text-xl font-bold]">Dashboard</h2>
-          <ul className="space-y-4 relative">
+          <ul className="space-y-2 relative">
             <li>
               <Link to='/' className="block py-2 px-4 rounded-lg hover:bg-amber-500 transition">
                 Home
               </Link>
-            </li>
-            <li>
-              <a href="#home" className="block py-2 px-4 rounded-lg hover:bg-amber-500 transition">
-                Add New Book
-              </a>
             </li>
             <li>
               <a href="#" className="block py-2 px-4 rounded-lg hover:bg-amber-500 transition">
@@ -58,7 +73,7 @@ const AddBook = () => {
           </ul>
         </aside>
 
-      
+
         <div className="w-3/4 p-10 bg-transparent ">
 
           <div className="w-full mx-auto  rounded-xl bg-gradient-to-br from-amber-300 bg-[#20bd4f85] p-8 shadow-xl">
@@ -79,6 +94,20 @@ const AddBook = () => {
                   placeholder="Enter the Title of the Book Here"
                   className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                 />
+              </div>
+              <div className="flex flex-col">
+                <label className="text-lg font-semibold text-gray-600 mb-2">Author</label>
+                <select
+                  name="author"
+                  type="text"
+                  placeholder="Enter the Title of the Book Author Here"
+
+                  className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
+                >
+                  {authors.map((author) => {
+                    return <option key={author._id} value={author._id}>{author.name}</option>
+                  })}
+                </select>
               </div>
 
               <div className="flex flex-col">
