@@ -1,7 +1,7 @@
-import Footer from "../../components/footer"
-import Navbar from "../../components/Navbar"
+
+// import Navbar from "../../components/Navbar"
 import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+// import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import React from 'react';
