@@ -12,6 +12,7 @@ const AddBook = () => {
   const getAuthors = async () => {
     const response = await axios.get(`${BASE_URL}/authors`);
     setAuthors(response.data)
+  
   }
 
   useEffect(() => {
@@ -30,8 +31,8 @@ const AddBook = () => {
       //post data to api
       const response = await axios.post(`${BASE_URL}/books`, {
         title: formData.get('title'),
-        description: formData.get('summary'),
-        content: formData.get(content),
+        summary: formData.get('summary'),
+        content: formData.get('content'),
         cover: formData.get('cover'),
         author: formData.get('author'),
       });
@@ -134,8 +135,7 @@ const AddBook = () => {
                 <label className="text-lg font-semibold text-gray-600 mb-2">Book Cover</label>
                 <input
                   name="cover"
-                  type="file"
-                  accept="image/*"
+                  type="text"
                   className="p-2 border border-gray-300 rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-400 file:text-white hover:file:bg-amber-500"
                 />
               </div>
