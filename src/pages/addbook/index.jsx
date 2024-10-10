@@ -10,7 +10,7 @@ const AddBook = () => {
   const [authors, setAuthors] = useState([]);
 
   const getAuthors = async () => {
-    const response = await axios.get(`${BASE_URL}/author`);
+    const response = await axios.get(`${BASE_URL}/authors`);
     setAuthors(response.data)
   }
 
