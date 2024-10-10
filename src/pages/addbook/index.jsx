@@ -1,126 +1,129 @@
 import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
-import { useState } from "react";
-import AddedBooks from "./components/AddedBooks";
+import axios from "axios";
+import { BASE_URL } from "../../constants";
+import { Link } from "react-router-dom";
+
 
 const AddBook = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [image, setImage] = useState(null);
-  const [uploadedBooks, setUploadedBooks] = useState([]);
-  const [editMode, setEditMode] = useState(false);
-  const [currentBookId, setCurrentBookId] = useState(null); // Store the ID of the book being edited
-
   // Handle form submission
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!title || !description || !image) {
-      alert("Please fill all the fields!");
-      return;
+    try {
+      //collect the form data
+      const formData = new FormData(event.target);
+
+      //post data to api
+      const response = await axios.post(`${BASE_URL}/books`, {
+        title: formData.get('title'),
+        description: formData.get('summary'),
+        content: formData.get(content),
+        image: formData.get('cover'),
+      });
+
+    } catch (error) {
+      console.log(error);
     }
-
-    if (editMode) {
-      // If in edit mode, update the existing book
-      setUploadedBooks((prevBooks) =>
-        prevBooks.map((book) =>
-          book.id === currentBookId
-            ? { ...book, title, description, image: URL.createObjectURL(image) }
-            : book
-        )
-      );
-      setEditMode(false); // Exit edit mode
-      setCurrentBookId(null); // Clear current book ID
-    } else {
-      // Add a new book
-      const newBook = {
-        id: Date.now(),
-        title,
-        description,
-        image: URL.createObjectURL(image),
-      };
-      setUploadedBooks([...uploadedBooks, newBook]);
-    }
-
-    // Reset form fields
-    setTitle("");
-    setDescription("");
-    setImage(null);
   };
 
-  // Handle image input
-  const handleImageChange = (event) => {
-    setImage(event.target.files[0]);
-  };
-
-  // Handle book deletion
-  const handleDeleteBook = (bookId) => {
-    const updatedBooks = uploadedBooks.filter((book) => book.id !== bookId);
-    setUploadedBooks(updatedBooks);
-  };
-
-  // Handle book edit
-  const handleEditBook = (book) => {
-    setTitle(book.title);
-    setDescription(book.description);
-    setImage(null); // Set the image to null because it can't be previewed
-    setEditMode(true); // Set to edit mode
-    setCurrentBookId(book.id); // Track which book is being edited
-  };
 
   return (
     <div>
-      <Navbar /> <br />
-      <div className="w-full mt-[50px] max-w-full lg:max-w-[1345px] h-auto flex flex-col justify-center items-center bg-gray-100 p-6 mx-auto">
-        <form
-          onSubmit={handleSubmit}
-          className="w-full sm:w-[80%] bg-gray-800 p-6 rounded-lg relative border-2 border-transparent"
-        >
-          <div className="absolute inset-0 rounded-lg border-[3px] border-gradient-to-r from-orange-400 via-yellow-500 to-red-500"></div>
 
-          <div className="relative z-10 space-y-4">
-            <label className="block text-gray-300">BOOK TITLE</label>
-            <input
-              type="text"
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
-              placeholder="Enter the Title of the Book Here"
-              className="w-full p-2 bg-gray-700 text-gray-400 placeholder-gray-500 rounded-md focus:outline-none focus:text-white"
-            />
+      <div id="#addbookcover" className="min-h-screen flex mb-[-200px] ">
+       
+        <aside className=" w-1/4 bg-gradient-to-b from-amber-400 to-lime-400 text-white p-6 shadow-lg ">
+          <h2 className="text-xl font-bold]">Dashboard</h2>
+          <ul className="space-y-4 relative">
+            <li>
+              <Link to='/' className="block py-2 px-4 rounded-lg hover:bg-amber-500 transition">
+                Home
+              </Link>
+            </li>
+            <li>
+              <a href="#home" className="block py-2 px-4 rounded-lg hover:bg-amber-500 transition">
+                Add New Book
+              </a>
+            </li>
+            <li>
+              <a href="#" className="block py-2 px-4 rounded-lg hover:bg-amber-500 transition">
+                Manage Books
+              </a>
+            </li>
+            <li>
+              <a href="#" className="block py-2 px-4 rounded-lg hover:bg-amber-500 transition">
+                Settings
+              </a>
+            </li>
+          </ul>
+        </aside>
 
-            <label className="block text-gray-300">DESCRIPTION</label>
-            <textarea
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-              placeholder="Description"
-              rows="5"
-              className="w-full p-2 h-[200px] bg-gray-700 text-gray-400 placeholder-gray-500 rounded-md focus:outline-none focus:text-white resize-none"
-            ></textarea>
+      
+        <div className="w-3/4 p-10 bg-transparent ">
 
-            <label className="block text-gray-300">Upload an Image</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="w-full bg-gray-700 text-gray-400 rounded-md focus:outline-none focus:text-white"
-            />
+          <div className="w-full mx-auto  rounded-xl bg-gradient-to-br from-amber-300 bg-[#20bd4f85] p-8 shadow-xl">
+            <h1 className="text-center text-2xl font-bold text-gray-700 mb-8">
+              Fill the Form Below to Upload a Book
+            </h1>
 
-            <button
-              type="submit"
-              className="w-full p-2 mt-4 bg-orange-500 text-white rounded-md hover:bg-orange-600"
+            <form
+              onSubmit={handleSubmit}
+              id="home"
+              className="flex flex-col gap-6 bg-white p-6 rounded-lg shadow-lg"
             >
-              {editMode ? "UPDATE BOOK" : "UPLOAD"}
-            </button>
-          </div>
-        </form>
+              <div className="flex flex-col">
+                <label className="text-lg font-semibold text-gray-600 mb-2">Book Title</label>
+                <input
+                  name="title"
+                  type="text"
+                  placeholder="Enter the Title of the Book Here"
+                  className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
+                />
+              </div>
 
-        {/* Pass the necessary props to the AddedBooks component */}
-        <AddedBooks
-          uploadedBooks={uploadedBooks}
-          handleEditBook={handleEditBook}
-          handleDeleteBook={handleDeleteBook}
-        />
+              <div className="flex flex-col">
+                <label className="text-lg font-semibold text-gray-600 mb-2">Description</label>
+                <textarea
+                  name="summary"
+                  placeholder="Provide a short description"
+                  rows="3"
+                  className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
+                ></textarea>
+              </div>
+
+              <div className="flex flex-col">
+                <label className="text-lg font-semibold text-gray-600 mb-2">Content</label>
+                <textarea
+                  name="content"
+                  placeholder="Enter the book content here"
+                  rows="5"
+                  className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
+                ></textarea>
+              </div>
+
+              <div className="flex flex-col">
+                <label className="text-lg font-semibold text-gray-600 mb-2">Book Cover</label>
+                <input
+                  name="cover"
+                  type="file"
+                  accept="image/*"
+                  className="p-2 border border-gray-300 rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-400 file:text-white hover:file:bg-amber-500"
+                />
+              </div>
+
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  className="mt-4 w-[150px] py-3 bg-lime-400 hover:bg-lime-500 text-white text-lg font-semibold rounded-full shadow-md transition duration-300 ease-in-out"
+                >
+                  Upload Book
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
+
 
       <Footer />
     </div>

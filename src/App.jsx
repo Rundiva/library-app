@@ -1,15 +1,13 @@
 
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
-import BookList from "./pages/bookList";
 import AddBook from "./pages/addbook";
 import "./App.css";
-import BookDetails from "./pages/bookDetails";
-import Hero from "./pages/bookList/components/Hero";
+import Book from "./pages/bookDetails/Book";
+import Hero from "./pages/bookList/Hero";
 import Navbar from "./components/Navbar"; 
 import Login from "./pages/Account/login";
 import Signup from "./pages/Account/signup";
-
-
+import BookList from "./pages/bookList/BookList";
 
 function App(){
   const router = createBrowserRouter([
@@ -25,12 +23,12 @@ function App(){
 
     {
       path: "/books/:id",
-      element: <BookDetails/>,
+      element: <Book/>,
     },
 
     {
       path: "/add-new",
-      element: <Hero/>,
+      element: <Hero/>
     },
     {
       path: "/add-new",
@@ -48,6 +46,11 @@ function App(){
       // path: "/index",
       // element: <GoBack/>,
     },  
+
+    {
+      path: "/",
+      element: <AddBook/>
+    }
    
 
   ]);
