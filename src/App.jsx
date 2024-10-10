@@ -13,7 +13,7 @@ function App(){
   const router = createBrowserRouter([
     { 
       path: "/",
-      element: <BookList/>,
+      element: <Hero/>,
     },
 
     {

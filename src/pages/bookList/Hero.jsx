@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom"
+import BookList from "./BookList"
+import Footer from "../../components/Footer"
+
 
 const Hero = () => {
   return (
@@ -21,10 +24,7 @@ const Hero = () => {
                 <input className="flex w-[35rem] h-[3rem] p-[2rem] rounded-l-full justify-center" placeholder="search books" /><button className="flex bg-[#F8A928] w-[8rem] text-white justify-center items-center">Find</button>
 
 
-                <div id="#booklist">
-
-                </div>
-
+               
               </div>
 
             </div>
@@ -34,6 +34,12 @@ const Hero = () => {
 
 
       </section>
+
+      <div id="#booklist" className="mt-[300px]">
+                 <BookList/>
+                 <Footer/>
+                </div>
+
 
     </div>
   )
