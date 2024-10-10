@@ -11,7 +11,7 @@ const BookList = () => {
         <Hero />
         <div>Book list content goes here</div>
 
-        <Link to="/add-new">Add Book</Link>
+        
         <Footer/>
         
     </div>

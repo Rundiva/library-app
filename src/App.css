@@ -42,6 +42,11 @@
   background-size: cover; 
  justify-content: center;
   
- 
-  
 }
+
+#signup-container{
+  background-image: url('./assets/signup-pic2.jpg'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+
+} 
