@@ -19,7 +19,7 @@ const Hero = () => {
                 <Link to="/add-new" className="py-[16px] px-[24px] bg-[#c5a88000] text-white border-[2px] hover:bg-white hover:text-black">ADD BOOK</Link>
 
               </span>
-              <div id="searchBar" className="flex bg-[#F8A928] box-content-h-[30rem] w-[62rem] p-24 mt-[15rem] mb-[5rem] ">
+              <div id="searchBar" className="flex bg-[#F8A928] box-content-h-[30rem] w-[100vw] p-24 mt-[15rem] mb-[5rem] ">
 
                 <input className="flex w-[35rem] h-[3rem] p-[2rem] rounded-l-full justify-center" placeholder="search books" /><button className="flex bg-[#F8A928] w-[8rem] text-white justify-center items-center">Find</button>
 
