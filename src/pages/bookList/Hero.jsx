@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom"
 import BookList from "./BookList"
 import Footer from "../../components/Footer"
+import Navbar from "../../components/Navbar"
 
 
 const Hero = () => {
   return (
     <div>
+
+      <Navbar/>
 
 
       <section id="hero-section" className='w-[100vw] h-[130vh]'>

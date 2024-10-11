@@ -153,7 +153,7 @@ const AddBook = () => {
               </div>
 
               <div className="w-[800px]">
-              <p className="text-green-500 text-5xl font-bold">{message}</p>
+              <p className="text-green-500 text-3xl font-bold">{message}</p>
               </div>
               
             </form>
