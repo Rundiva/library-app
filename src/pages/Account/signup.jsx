@@ -18,7 +18,7 @@ const signup = () => {
                 <div className="w-[50rem] items-center justify-center mx-28">
                     <form method="post" className="p-40 text-left bg-orange-300/30">
                         <div>
-                    
+
                             <div className="flex-col text-white p-2 text-center">
                                 <h1 className="font-bold text-4xl font-sans ">Register for Unlimited Resources</h1>
                                 <div className="flex items-center justify-center pt-10">
@@ -34,7 +34,7 @@ const signup = () => {
                         <input type="email" className="p-[1rem] w-[30rem] mb-[40px]" placeholder="Enter Email Address" required />
                         <label className="text-white" htmlFor="Signup">Password</label>
                         <input type="password" className="p-[1rem] w-[30rem] mb-[40px]" placeholder="Enter Password" required />
-                        <button className="bg-[#f8a8288f] text-white p-[10px] mr-5">Register</button>
+                        <Link to='/add-new'><button className="bg-[#f8a8288f] text-white p-[10px] mr-5">Register</button></Link>
                         <Link to='/'><button className="bg-[#f8a8288f] text-white p-[10px]">Go back</button></Link>
                         <hr className="w-full mt-10" />
                         <div className="text-xl text-white">
