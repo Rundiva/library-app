@@ -18,7 +18,8 @@ const Hero = () => {
               <h1 className="text-white text-[80px] font-bold pt-[20rem]">RUNDEVS OPEN LIBRARY</h1>
               <p className="text-white text-[22px]">GET UNLIMITED ACCESS ALL THE INTERESTING BOOKS YOU NEED</p>
               <span className="flex gap-x-2">
-                <button id="booklist" className="py-[16px] px-[24px] bg-[#F8A928] text-white border-[3px]  hover:bg-white hover:text-black hover:border-black border-[#F8A928]">OUR COLLECTIONS</button>
+
+                <a id="booklist" href="#linking" className="py-[16px] px-[24px] bg-[#F8A928] text-white border-[3px]  hover:bg-white hover:text-black hover:border-black border-[#F8A928]">OUR COLLECTIONS</a>
                 <Link to="/add-new" className="py-[16px] px-[24px] bg-[#c5a88000] text-white border-[2px] hover:bg-white hover:text-black">ADD BOOK</Link>
 
               </span>
@@ -38,7 +39,7 @@ const Hero = () => {
 
       </section>
 
-      <div id="#booklist" className="mt-[300px]">
+      <div id="linking" className="mt-[300px]">
                  <BookList/>
                  <Footer/>
                 </div>
