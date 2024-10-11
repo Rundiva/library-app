@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 const AddBook = () => {
   //fetching Data
   const [authors, setAuthors] = useState([]);
+  const [message, setMessage] = useState('');
 
   const getAuthors = async () => {
     const response = await axios.get(`${BASE_URL}/authors`);
@@ -36,6 +37,8 @@ const AddBook = () => {
         cover: formData.get('cover'),
         author: formData.get('author'),
       });
+
+      setMessage('Book Added Successfully!');
 
     } catch (error) {
       console.log(error);
@@ -148,6 +151,11 @@ const AddBook = () => {
                   Upload Book
                 </button>
               </div>
+
+              <div className="w-[800px]">
+              <p className="text-green-500 text-5xl font-bold">{message}</p>
+              </div>
+              
             </form>
           </div>
         </div>
